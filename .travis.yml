@@ -1,0 +1,7 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t ryan/docker-react -f Dockerfile.dev .
+script:
+  - docker container run ryan/docker-react npm run test -- --coverage
